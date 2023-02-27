@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Cars</title>
+</head>
+<body>
+<h2>
+    <table>
+        <tr>
+            <th>Model</th>
+            <th>Price</th>
+            <th>operation</th>
+        </tr>
+
+        <div th:each="car : ${cars}">
+            <tr>
+                <td><p th:text="${car.getName()}">VALUE</p></td>
+                <td><p th:text="${car.getPrice()}">VALUE</p></td>
+                <td><button type="button">
+                    <a th:href="@{/cars/{id}/edit(id=${car.getId()})}">UPDATE</a>
+                </button>
+                <td><button type="button">
+                    <a th:href="@{/cars/{id}/delete(id=${car.getId()})}">DELETE</a>
+                </button>
+            </tr>
+        </div>
+    </table>
+    <button type="button">
+        <a th:href="@{/cars/new}">CREATE NEW CAR</a>
+    </button>
+    <br><br>
+    <button type="button">
+        <a th:href="@{/MainPage}">THE MAIN PAGE</a>
+    </button>
+</h2>
+</body>
+</html>

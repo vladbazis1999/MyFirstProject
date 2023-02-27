@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Countries</title>
+</head>
+<body>
+<h2>
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>POPULATION</th>
+            <th>OPERACION</th>
+            <th></th>
+        </tr>
+        <div th:each="country : ${countries}">
+            <tr>
+                <td><p th:text="${country.getName()}">VALUE</p></td>
+                <td><p th:text="${country.getPopulation()}">VALUE</p></td>
+                <td><button type="button">
+                    <a th:href="@{/countries/{id}/edit(id=${country.getId()})}">UPDATE</a>
+                </button>
+                <button type="button">
+                <a th:href="@{/countries/{id}/delete(id=${country.getId()})}">DELETE</a>
+                </button>
+                    <button type="button">
+                        <a th:href="@{/countries/{id}/AllPeopleInCountry(id=${country.getId()})}">SHOW PEOPLE IN COUNTRY</a>
+                    </button>
+                    <button type="button">
+                        <a th:href="@{/countries/{id}/AllJobsInCountry(id=${country.getId()})}">SHOW JOBS IN COUNTRY</a>
+                    </button>
+                <td>
+            </tr>
+        </div>
+    </table>
+    <button type="button">
+        <a th:href="@{/countries/new}">CREATE NEW COUNTRY</a>
+    </button>
+    <br><br>
+    <button type="button">
+    <a th:href="@{/MainPage}">THE MAIN PAGE</a>
+    </button>
+</h2>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Country</title>
+</head>
+<body>
+<h2>
+    <h2>
+        <h2>
+            CONFIRM YOUR CHOOSE
+            <form th:method= "DELETE"
+                  th:action="@{/countries/{id}(id=${country.getId()})}"
+                  th:object="${country}">
+                <br/><br/>
+                <input type="submit" value="DELETE"/>
+            </form>
+        </h2>
+    </h2>
+    <h2>
+    <a th:href="@{/countries}">COME BACK</a>
+    </h2>
+</h2>
+</body>
+</html>

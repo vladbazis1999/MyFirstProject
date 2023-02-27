@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+<h2>
+    <br><br>
+    <a th:href="@{/people/{id}/edit(id=${person.getId()})}">UPDATE</a>
+    <br><br>
+    <a th:href="@{/people/{id}/delete(id=${person.getId()})}">DELETE</a>
+    <br><br>
+    <a th:href="@{/people}">COME BACK</a>
+    <br><br>
+    <table>
+        <tr>
+            <th>|   ID   |</th>
+            <th>NAME   |</th>
+            <th>COUNTRY   |</th>
+            <th>JOB   |</th>
+        </tr>
+        <tr>
+                <td><p th:text="${person.getId()}">VALUE</p></td>
+                <td><p th:text="${person.getName()}">VALUE</p></td>
+                <td><p th:text="${person.countryEntity.name}">VALUE</p></td>
+                <td><p th:text="${person.jobEntity.name}">VALUE</p></td>
+        </tr>
+    </table>
+</h2>
+</body>
+</html>

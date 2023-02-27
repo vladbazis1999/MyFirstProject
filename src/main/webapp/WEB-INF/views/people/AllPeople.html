@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All People</title>
+</head>
+<body>
+<h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>OPERATION</th>
+
+        </tr>
+        <div th:each="person : ${people}">
+            <tr>
+                <td><p th:text="${person.getId()}">VALUE</p></td>
+                <td><p th:text="${person.getName()}">VALUE</p></td>
+                <td>
+                    <button type="button">
+                        <a th:href="@{/people/{id}/show(id=${person.getId()})}">SHOW PERSON</a>
+                    </button>
+                <td>
+            </tr>
+        </div>
+    </table>
+    <button type="button">
+        <a th:href="@{/people/new}">CREATE NEW PERSON</a>
+    </button>
+    <br><br>
+    <button type="button">
+        <a th:href="@{/MainPage}">THE MAIN PAGE</a>
+    </button>
+</h2>
+</body>
+</html>

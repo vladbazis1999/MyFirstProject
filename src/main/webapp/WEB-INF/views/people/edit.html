@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Update person</title>
+</head>
+<body>
+<h2>
+<form th:method= "PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+    <br/><br/>
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/><br/>
+    COUNTRY <select type="text" th:field="*{countryEntity.id}">
+    <div th:each="country : ${countries}">
+        <option th:value="${country.getId()}"
+                th:label="${country.getName()}"
+        >VALUE</option>
+    </div>
+</select>
+    JOB <select type="text" th:field="*{jobEntity.id}">
+    <div th:each="job : ${jobs}">
+        <option th:value="${job.getId()}"
+                th:label="${job.getName()}"
+        >VALUE</option>
+    </div>
+</select>
+    <br/><br/>
+        <input type="submit" value="UPDATE"/>
+</form>
+    <a th:href="@{/people}">COME BACK</a>
+</h2>
+</body>
+</html>

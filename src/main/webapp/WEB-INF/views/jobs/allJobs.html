@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Jobs</title>
+</head>
+<body>
+<h2>
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>SALARY</th>
+            <th>OPERACION</th>
+        </tr>
+
+        <div th:each="job : ${jobs}">
+
+            <tr>
+                <td><p th:text="${job.getName()+'  |  '}">VALUE</p></td>
+                <td><p th:text="${job.getSalary()+'  |  '}">VALUE</p></td>
+                <td><button type="button">
+                    <a th:href="@{/jobs/{id}/edit(id=${job.getId()})}">UPDATE</a>
+                </button>
+                <button type="button">
+                    <a th:href="@{/jobs/{id}/delete(id=${job.getId()})}">DELETE</a>
+                </button>
+                <button type="button">
+                    <a th:href="@{/jobs/{id}/AllPeopleInJob(id=${job.getId()})}">SHOW PEOPLE IN JOB</a>
+                </button>
+                    <button type="button">
+                        <a th:href="@{/jobs/{id}/AllCountriesWithJob(id=${job.getId()})}">SHOW COUNTRIES WITH JOB</a>
+                    </button>
+                <td>
+            </tr>
+        </div>
+
+    </table>
+    <button type="button">
+        <a th:href="@{/jobs/new}">CREATE NEW JOB</a>
+    </button>
+    <br><br>
+    <button type="button">
+        <a th:href="@{/MainPage}">THE MAIN PAGE</a>
+    </button>
+</h2>
+</body>
+</html>
